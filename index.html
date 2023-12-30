@@ -63,12 +63,26 @@
       margin-top: 20px;
     }
 
+    #slider {
+      display: flex;
+      overflow-x: scroll;
+      margin-bottom: 20px;
+    }
+
+    .slide {
+      flex: 0 0 100%;
+      max-width: 100%;
+      box-sizing: border-box;
+    }
+
     #server-info {
-      padding: 20px;
       text-align: center;
       background-color: #333;
       color: white;
-      margin-top: 20px;
+      padding: 30px;
+      position: fixed;
+      bottom: 0;
+      width: 100%;
     }
 
     .social-links {
@@ -85,17 +99,26 @@
 <body>
   <header>
     <div class="buttons">
-      <div class="button" onclick="showInfo('info1')">Botão 1</div>
-      <div class="button" onclick="showInfo('info2')">Botão 2</div>
-      <div class="button" onclick="showInfo('info3')">Botão 3</div>
+      <div class="button" onclick="showSlider(1)">Botão 1</div>
+      <div class="button" onclick="showSlider(2)">Botão 2</div>
+      <div class="button" onclick="showSlider(3)">Botão 3</div>
     </div>
     <img src="logo.png" alt="Logo" class="logo">
     <div class="buttons">
-      <div class="button" onclick="showInfo('info4')">Botão 4</div>
-      <div class="button" onclick="showInfo('info5')">Botão 5</div>
-      <div class="button" onclick="showInfo('info6')">Botão 6</div>
+      <div class="button" onclick="showSlider(4)">Botão 4</div>
+      <div class="button" onclick="showSlider(5)">Botão 5</div>
+      <div class="button" onclick="showSlider(6)">Botão 6</div>
     </div>
   </header>
+
+  <div id="slider">
+    <div class="slide">Conteúdo 1</div>
+    <div class="slide">Conteúdo 2</div>
+    <div class="slide">Conteúdo 3</div>
+    <div class="slide">Conteúdo 4</div>
+    <div class="slide">Conteúdo 5</div>
+    <div class="slide">Conteúdo 6</div>
+  </div>
 
   <div id="gif">
     <img src="your-gif.gif" alt="GIF">
@@ -129,11 +152,11 @@
       header.classList.toggle("scrolled", window.scrollY > 50 || document.documentElement.scrollTop > 50);
     }
 
-    function showInfo(infoId) {
-      const infoElements = document.querySelectorAll("#server-info > div");
-      infoElements.forEach(infoElement => infoElement.style.display = "none");
-
-      document.getElementById(infoId).style.display = "block";
+    function showSlider(slideIndex) {
+      const slides = document.querySelectorAll('.slide');
+      slides.forEach((slide, index) => {
+        slide.style.display = index + 1 === slideIndex ? 'block' : 'none';
+      });
     }
   </script>
 </body>
