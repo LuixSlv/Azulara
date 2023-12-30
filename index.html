@@ -1,147 +1,93 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Sua Página</title>
-  <style>
-    body {
-      margin: 0;
-      padding: 0;
-      font-family: 'Arial', sans-serif;
-      background-color: #f0f0f0;
-    }
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Minha Página no GitHub</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+        }
 
-    header {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      background-color: rgba(0, 0, 139, 0.8);
-      z-index: 1000;
-    }
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
 
-    .logo {
-      max-height: 50px;
-      margin: 0 20px;
-    }
+        nav {
+            display: flex;
+            justify-content: center;
+            background-color: #ddd;
+            padding: 10px;
+        }
 
-    .buttons {
-      display: flex;
-      padding: 10px;
-    }
+        section {
+            display: none;
+            padding: 20px;
+        }
 
-    .button {
-      margin: 0 10px;
-      padding: 10px 20px;
-      background-color: transparent;
-      color: white;
-      border: 2px solid white;
-      border-radius: 10px;
-      cursor: pointer;
-    }
+        section.active {
+            display: block;
+        }
 
-    .button:hover {
-      background-color: white;
-      color: #333;
-    }
-
-    #gif {
-      width: 100%;
-      text-align: center;
-      margin-top: 80px;
-    }
-
-    #main-content {
-      padding: 20px;
-      margin-top: 20px;
-      text-align: center;
-    }
-
-    #slider {
-      display: flex;
-      overflow-x: scroll;
-      margin-bottom: 20px;
-    }
-
-    .slide {
-      flex: 0 0 100%;
-      max-width: 100%;
-      box-sizing: border-box;
-      display: none;
-    }
-
-    #server-info {
-      text-align: center;
-      background-color: #333;
-      color: white;
-      padding: 30px;
-      width: 100%;
-    }
-
-    .social-links {
-      margin-top: 20px;
-    }
-
-    .social-link {
-      margin: 0 10px;
-      text-decoration: none;
-      color: white;
-    }
-  </style>
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: fixed;
+            bottom: 0;
+            width: 100%;
+        }
+    </style>
 </head>
 <body>
-  <header>
-    <img src="logo.png" alt="Logo" class="logo">
-    <div class="buttons">
-      <div class="button" onclick="showSlider(1)">Botão 1</div>
-      <div class="button" onclick="showSlider(2)">Botão 2</div>
-      <div class="button" onclick="showSlider(3)">Botão 3</div>
-      <div class="button" onclick="showSlider(4)">Botão 4</div>
-      <div class="button" onclick="showSlider(5)">Botão 5</div>
-      <div class="button" onclick="showSlider(6)">Botão 6</div>
-    </div>
-  </header>
 
-  <div id="gif">
-    <img src="your-gif.gif" alt="GIF">
-  </div>
+    <header>
+        <img src="caminho/da/imagem.jpg" alt="Logo">
+        <h1>Meu Site no GitHub</h1>
+    </header>
 
-  <div id="main-content">
-    <div id="slider">
-      <div class="slide">Conteúdo 1</div>
-      <div class="slide">Conteúdo 2</div>
-      <div class="slide">Conteúdo 3</div>
-      <div class="slide">Conteúdo 4</div>
-      <div class="slide">Conteúdo 5</div>
-      <div class="slide">Conteúdo 6</div>
-    </div>
-  </div>
+    <nav>
+        <button onclick="showSection(1)">Opção 1</button>
+        <button onclick="showSection(2)">Opção 2</button>
+        <button onclick="showSection(3)">Opção 3</button>
+    </nav>
 
-  <div id="server-info">
-    <div id="info1">Informações 1</div>
-    <div id="info2" style="display: none;">Informações 2</div>
-    <div id="info3" style="display: none;">Informações 3</div>
-    <div id="info4" style="display: none;">Informações 4</div>
-    <div id="info5" style="display: none;">Informações 5</div>
-    <div id="info6" style="display: none;">Informações 6</div>
+    <section id="section1" class="active">
+        <h2>Opção 1</h2>
+        <p>Conteúdo da Opção 1...</p>
+    </section>
 
-    <div class="social-links">
-      <a href="#" class="social-link">Facebook</a>
-      <a href="#" class="social-link">Twitter</a>
-      <a href="#" class="social-link">Instagram</a>
-    </div>
-  </div>
+    <section id="section2">
+        <h2>Opção 2</h2>
+        <p>Conteúdo da Opção 2...</p>
+    </section>
 
-  <script>
-    function showSlider(slideIndex) {
-      const slides = document.querySelectorAll('.slide');
-      slides.forEach((slide, index) => {
-        slide.style.display = index + 1 === slideIndex ? 'block' : 'none';
-      });
-    }
-  </script>
+    <section id="section3">
+        <h2>Opção 3</h2>
+        <p>Conteúdo da Opção 3...</p>
+    </section>
+
+    <footer>
+        <p>Informações Finais do Site</p>
+    </footer>
+
+    <script>
+        function showSection(sectionNumber) {
+            // Esconder todas as seções
+            document.querySelectorAll('section').forEach(function(section) {
+                section.classList.remove('active');
+            });
+
+            // Mostrar a seção selecionada
+            document.getElementById('section' + sectionNumber).classList.add('active');
+        }
+    </script>
+
 </body>
 </html>
