@@ -1,157 +1,132 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minha Página no GitHub</title>
-    <link rel="stylesheet" href="styles.css">
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            margin: 0;
-            padding: 0;
-            background-color: #f2f2f2;
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sua Página</title>
+  <style>
+    body {
+      margin: 0;
+      padding: 0;
+      font-family: 'Arial', sans-serif;
+    }
 
-        header {
-            position: fixed;
-            top: 0;
-            left: 0;
-            right: 0;
-            background-color: rgba(33, 33, 33, 0.8); /* Cor azul escuro com transparência */
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-            z-index: 1000;
-            display: none;
-        }
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      background-color: transparent;
+      transition: background-color 0.5s ease;
+      z-index: 1000;
+    }
 
-        nav {
-            display: flex;
-            justify-content: space-between;
-            background: linear-gradient(to right, #3498db, #2980b9);
-            padding: 10px;
-            border-bottom-left-radius: 15px;
-            border-bottom-right-radius: 15px;
-        }
+    header.scrolled {
+      background-color: rgba(0, 0, 139, 0.8); /* Azul escuro com transparência */
+    }
 
-        .logo {
-            width: 50px; /* Ajuste conforme necessário */
-            height: 50px; /* Ajuste conforme necessário */
-        }
+    .logo {
+      max-height: 50px;
+      margin: 0 20px;
+    }
 
-        .buttons-container {
-            display: flex;
-            align-items: center;
-        }
+    .buttons {
+      display: flex;
+    }
 
-        .button {
-            background: linear-gradient(to right, #3498db, #2980b9);
-            color: #fff;
-            border: none;
-            padding: 15px 30px;
-            text-align: center;
-            text-decoration: none;
-            display: inline-block;
-            font-size: 16px;
-            margin: 4px;
-            cursor: pointer;
-            border-radius: 15px;
-        }
+    .button {
+      margin: 0 10px;
+      padding: 10px 20px;
+      background-color: transparent;
+      color: white;
+      border: 2px solid white;
+      border-radius: 10px;
+      cursor: pointer;
+    }
 
-        section {
-            padding: 20px;
-        }
+    .button:hover {
+      background-color: white;
+      color: #333;
+    }
 
-        section:nth-child(even) {
-            background-color: #ddd;
-        }
+    #gif {
+      width: 100%;
+    }
 
-        footer {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 10px;
-            position: relative;
-            z-index: 1;
-        }
-    </style>
+    #server-info {
+      padding: 50px;
+      text-align: center;
+      background-color: #f0f0f0;
+    }
+
+    .social-links {
+      margin-top: 20px;
+    }
+
+    .social-link {
+      margin: 0 10px;
+      text-decoration: none;
+      color: #333;
+    }
+  </style>
 </head>
 <body>
+  <header>
+    <div class="buttons">
+      <div class="button" onclick="showInfo('info1')">Botão 1</div>
+      <div class="button" onclick="showInfo('info2')">Botão 2</div>
+      <div class="button" onclick="showInfo('info3')">Botão 3</div>
+    </div>
+    <img src="logo.png" alt="Logo" class="logo">
+    <div class="buttons">
+      <div class="button" onclick="showInfo('info4')">Botão 4</div>
+      <div class="button" onclick="showInfo('info5')">Botão 5</div>
+      <div class="button" onclick="showInfo('info6')">Botão 6</div>
+    </div>
+  </header>
 
-    <header id="header">
-        <img src="logo.gif" alt="GIF de Início" class="logo">
-        <h1>Meu Site no GitHub</h1>
-    </header>
+  <div id="gif">
+    <img src="your-gif.gif" alt="GIF">
+  </div>
 
-    <nav>
-        <div class="buttons-container">
-            <button class="button" onclick="scrollToSection('section1')">Opção 1</button>
-            <button class="button" onclick="scrollToSection('section2')">Opção 2</button>
-            <button class="button" onclick="scrollToSection('section3')">Opção 3</button>
-        </div>
-        <img src="logo.gif" alt="GIF de Início" class="logo">
-        <div class="buttons-container">
-            <button class="button" onclick="scrollToSection('section4')">Opção 4</button>
-            <button class="button" onclick="scrollToSection('section5')">Opção 5</button>
-            <button class="button" onclick="scrollToSection('section6')">Opção 6</button>
-        </div>
-    </nav>
+  <div id="server-info">
+    <div id="info1">Informações 1</div>
+    <div id="info2" style="display: none;">Informações 2</div>
+    <div id="info3" style="display: none;">Informações 3</div>
+    <div id="info4" style="display: none;">Informações 4</div>
+    <div id="info5" style="display: none;">Informações 5</div>
+    <div id="info6" style="display: none;">Informações 6</div>
 
-    <section id="section1">
-        <h2>Opção 1</h2>
-        <p>Conteúdo da Opção 1...</p>
-    </section>
+    <div class="social-links">
+      <a href="#" class="social-link">Facebook</a>
+      <a href="#" class="social-link">Twitter</a>
+      <a href="#" class="social-link">Instagram</a>
+    </div>
+  </div>
 
-    <section id="section2">
-        <h2>Opção 2</h2>
-        <p>Conteúdo da Opção 2...</p>
-    </section>
+  <script>
+    window.onscroll = function() { scrollFunction() };
 
-    <section id="section3">
-        <h2>Opção 3</h2>
-        <p>Conteúdo da Opção 3...</p>
-    </section>
+    function scrollFunction() {
+      if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+        document.querySelector("header").classList.add("scrolled");
+      } else {
+        document.querySelector("header").classList.remove("scrolled");
+      }
+    }
 
-    <section id="section4">
-        <h2>Opção 4</h2>
-        <p>Conteúdo da Opção 4...</p>
-    </section>
+    function showInfo(infoId) {
+      // Oculta todas as informações
+      var infoElements = document.querySelectorAll("#server-info > div");
+      infoElements.forEach(function(infoElement) {
+        infoElement.style.display = "none";
+      });
 
-    <section id="section5">
-        <h2>Opção 5</h2>
-        <p>Conteúdo da Opção 5...</p>
-    </section>
-
-    <section id="section6">
-        <h2>Opção 6</h2>
-        <p>Conteúdo da Opção 6...</p>
-    </section>
-
-    <footer>
-        <p>Informações Finais do Site</p>
-    </footer>
-
-    <script src="scripts.js"></script>
-    <script>
-        window.onscroll = function() { scrollFunction() };
-
-        function scrollFunction() {
-            var header = document.getElementById("header");
-            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
-                header.style.display = "block";
-            } else {
-                header.style.display = "none";
-            }
-        }
-
-        function scrollToSection(sectionId) {
-            const section = document.getElementById(sectionId);
-            if (section) {
-                section.scrollIntoView({ behavior: 'smooth' });
-            }
-        }
-    </script>
-
+      // Exibe a informação clicada
+      document.getElementById(infoId).style.display = "block";
+    }
+  </script>
 </body>
 </html>
