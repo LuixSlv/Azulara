@@ -19,13 +19,8 @@
       display: flex;
       justify-content: space-between;
       align-items: center;
-      background-color: transparent;
-      transition: background-color 0.5s ease;
-      z-index: 1000;
-    }
-
-    header.scrolled {
       background-color: rgba(0, 0, 139, 0.8);
+      z-index: 1000;
     }
 
     .logo {
@@ -35,6 +30,7 @@
 
     .buttons {
       display: flex;
+      padding: 10px;
     }
 
     .button {
@@ -61,6 +57,7 @@
     #main-content {
       padding: 20px;
       margin-top: 20px;
+      text-align: center;
     }
 
     #slider {
@@ -73,6 +70,7 @@
       flex: 0 0 100%;
       max-width: 100%;
       box-sizing: border-box;
+      display: none;
     }
 
     #server-info {
@@ -80,8 +78,6 @@
       background-color: #333;
       color: white;
       padding: 30px;
-      position: fixed;
-      bottom: 0;
       width: 100%;
     }
 
@@ -98,35 +94,30 @@
 </head>
 <body>
   <header>
+    <img src="logo.png" alt="Logo" class="logo">
     <div class="buttons">
       <div class="button" onclick="showSlider(1)">Botão 1</div>
       <div class="button" onclick="showSlider(2)">Botão 2</div>
       <div class="button" onclick="showSlider(3)">Botão 3</div>
-    </div>
-    <img src="logo.png" alt="Logo" class="logo">
-    <div class="buttons">
       <div class="button" onclick="showSlider(4)">Botão 4</div>
       <div class="button" onclick="showSlider(5)">Botão 5</div>
       <div class="button" onclick="showSlider(6)">Botão 6</div>
     </div>
   </header>
 
-  <div id="slider">
-    <div class="slide">Conteúdo 1</div>
-    <div class="slide">Conteúdo 2</div>
-    <div class="slide">Conteúdo 3</div>
-    <div class="slide">Conteúdo 4</div>
-    <div class="slide">Conteúdo 5</div>
-    <div class="slide">Conteúdo 6</div>
-  </div>
-
   <div id="gif">
     <img src="your-gif.gif" alt="GIF">
   </div>
 
   <div id="main-content">
-    <p>Conteúdo principal da página vai aqui...</p>
-    <p>Mais conteúdo...</p>
+    <div id="slider">
+      <div class="slide">Conteúdo 1</div>
+      <div class="slide">Conteúdo 2</div>
+      <div class="slide">Conteúdo 3</div>
+      <div class="slide">Conteúdo 4</div>
+      <div class="slide">Conteúdo 5</div>
+      <div class="slide">Conteúdo 6</div>
+    </div>
   </div>
 
   <div id="server-info">
@@ -145,13 +136,6 @@
   </div>
 
   <script>
-    window.onscroll = function() { scrollFunction() };
-
-    function scrollFunction() {
-      const header = document.querySelector("header");
-      header.classList.toggle("scrolled", window.scrollY > 50 || document.documentElement.scrollTop > 50);
-    }
-
     function showSlider(slideIndex) {
       const slides = document.querySelectorAll('.slide');
       slides.forEach((slide, index) => {
