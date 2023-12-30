@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>AZALURE</title>
+    <title>Minha Página no GitHub</title>
     <link rel="stylesheet" href="styles.css">
     <style>
         body {
@@ -14,24 +14,25 @@
         }
 
         header {
-            background-color: #333;
-            color: #fff;
-            text-align: center;
-            padding: 20px;
-        }
-
-        nav {
             position: fixed;
             top: 0;
             left: 0;
             right: 0;
+            background-color: rgba(33, 33, 33, 0.8); /* Cor azul escuro com transparência */
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+            z-index: 1000;
+            display: none;
+        }
+
+        nav {
             display: flex;
             justify-content: space-between;
             background: linear-gradient(to right, #3498db, #2980b9);
             padding: 10px;
             border-bottom-left-radius: 15px;
             border-bottom-right-radius: 15px;
-            z-index: 1000;
         }
 
         .logo {
@@ -78,9 +79,9 @@
 </head>
 <body>
 
-    <header>
-        <img src="Imagens/bg_platinum.gif" alt="GIF de Início" class="logo">
-        <h1>AZALURE</h1>
+    <header id="header">
+        <img src="logo.gif" alt="GIF de Início" class="logo">
+        <h1>Meu Site no GitHub</h1>
     </header>
 
     <nav>
@@ -98,69 +99,52 @@
     </nav>
 
     <section id="section1">
-        <h2>Jogos</h2>
-        <p>Novidades em breve...</p>
+        <h2>Opção 1</h2>
+        <p>Conteúdo da Opção 1...</p>
     </section>
 
     <section id="section2">
-        <h2>Quem nós somos?</h2>
-        <p>Um estúdio indie de desenvolvedores.</p>
+        <h2>Opção 2</h2>
+        <p>Conteúdo da Opção 2...</p>
     </section>
 
     <section id="section3">
-        <h2>Noticias</h2>
+        <h2>Opção 3</h2>
         <p>Conteúdo da Opção 3...</p>
     </section>
 
     <section id="section4">
-        <h2>Contato</h2>
+        <h2>Opção 4</h2>
         <p>Conteúdo da Opção 4...</p>
     </section>
 
     <section id="section5">
-        <h2>Discord</h2>
-        <p>     
-<meta charset="UTF-8" />    <meta content="IE=edge" http-equiv="X-UA-Compatible" />    <meta content="width=device-width, initial-scale=1.0" name="viewport" />    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            display: center;
-            justify-content: center;
-            align-items: center;
-            height: 100vh;
-            background-color: #f0f0f0; /* Cor de fundo da página */
-        }
-
-        #widget-container {
-            width: 800px; /* Largura do contêiner do widget */
-            height: 370px; /* Altura do contêiner do widget */
-            border: 1px solid #ccc; /* Borda do contêiner do widget */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra do contêiner do widget */
-        }
-    </style> 
-<div id="widget-container">
-	        
-	<!--  Código do Widgetbot aqui  -->        
-<widgetbot style="width: 100%; height: 100%;" channel="1188652399250898964" server="1086306542854344805"></widgetbot>    
-</div>
-    <script src="https://cdn.jsdelivr.net/npm/@widgetbot/html-embed"></script> 
-    </br>
-    </br>
-    </br>
-    </p>
+        <h2>Opção 5</h2>
+        <p>Conteúdo da Opção 5...</p>
     </section>
 
     <section id="section6">
-        <h2>Trabalhe conosco</h2>
+        <h2>Opção 6</h2>
         <p>Conteúdo da Opção 6...</p>
     </section>
 
     <footer>
-        <p>2023 Azalure, ALL RIGHTS RESERVED.</p>
+        <p>Informações Finais do Site</p>
     </footer>
 
     <script src="scripts.js"></script>
     <script>
+        window.onscroll = function() { scrollFunction() };
+
+        function scrollFunction() {
+            var header = document.getElementById("header");
+            if (document.body.scrollTop > 50 || document.documentElement.scrollTop > 50) {
+                header.style.display = "block";
+            } else {
+                header.style.display = "none";
+            }
+        }
+
         function scrollToSection(sectionId) {
             const section = document.getElementById(sectionId);
             if (section) {
@@ -171,4 +155,3 @@
 
 </body>
 </html>
-
