@@ -1,5 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -12,10 +13,15 @@
         }
 
         header {
-            background-color: #333;
+            background-color: rgba(0, 0, 255, 0.7); /* Dark blue with low transparency */
             color: #fff;
             text-align: center;
             padding: 20px;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            transition: top 0.3s; /* Add smooth transition effect */
+            z-index: 1;
         }
 
         nav {
@@ -28,6 +34,7 @@
         section {
             display: none;
             padding: 20px;
+            text-align: center;
         }
 
         section.active {
@@ -35,16 +42,41 @@
         }
 
         footer {
-            background-color: #333;
+            background: linear-gradient(to right, #333, #555); /* Dark gray to slightly lighter gray gradient */
             color: #fff;
             text-align: center;
             padding: 10px;
             position: fixed;
             bottom: 0;
             width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            z-index: 1;
+        }
+
+        footer img {
+            max-height: 30px; /* Adjust as needed */
+            margin-right: 10px;
+        }
+
+        .social-icons {
+            display: flex;
+            gap: 10px;
+        }
+
+        .social-icons a {
+            color: #fff;
+            text-decoration: none;
+            font-size: 18px;
+        }
+
+        .content {
+            margin-top: 100px; /* Adjust as needed based on header height */
         }
     </style>
 </head>
+
 <body>
 
     <header>
@@ -58,36 +90,57 @@
         <button onclick="showSection(3)">Opção 3</button>
     </nav>
 
-    <section id="section1" class="active">
-        <h2>Opção 1</h2>
-        <p>Conteúdo da Opção 1...</p>
-    </section>
+    <div class="content">
+        <section id="section1" class="active">
+            <h2>Opção 1</h2>
+            <p>Conteúdo da Opção 1...</p>
+        </section>
 
-    <section id="section2">
-        <h2>Opção 2</h2>
-        <p>Conteúdo da Opção 2...</p>
-    </section>
+        <section id="section2">
+            <h2>Opção 2</h2>
+            <p>Conteúdo da Opção 2...</p>
+        </section>
 
-    <section id="section3">
-        <h2>Opção 3</h2>
-        <p>Conteúdo da Opção 3...</p>
-    </section>
+        <section id="section3">
+            <h2>Opção 3</h2>
+            <p>Conteúdo da Opção 3...</p>
+        </section>
+    </div>
 
     <footer>
-        <p>Informações Finais do Site</p>
+        <img src="caminho/do/logo.png" alt="Logo">
+        <div class="social-icons">
+            <a href="#" target="_blank">Facebook</a>
+            <a href="#" target="_blank">Twitter</a>
+            <a href="#" target="_blank">Instagram</a>
+        </div>
+        <p>Site criado por [Seu Nome]</p>
     </footer>
 
     <script>
         function showSection(sectionNumber) {
             // Esconder todas as seções
-            document.querySelectorAll('section').forEach(function(section) {
+            document.querySelectorAll('section').forEach(function (section) {
                 section.classList.remove('active');
             });
 
             // Mostrar a seção selecionada
             document.getElementById('section' + sectionNumber).classList.add('active');
         }
+
+        // Hide or show the header on scroll
+        let prevScrollPos = window.pageYOffset;
+        window.onscroll = function () {
+            let currentScrollPos = window.pageYOffset;
+            if (prevScrollPos > currentScrollPos) {
+                document.querySelector("header").style.top = "0";
+            } else {
+                document.querySelector("header").style.top = "-70px"; /* Adjust as needed based on header height */
+            }
+            prevScrollPos = currentScrollPos;
+        };
     </script>
 
 </body>
+
 </html>
