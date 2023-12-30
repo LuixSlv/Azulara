@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -10,53 +10,98 @@
             font-family: Arial, sans-serif;
             margin: 0;
             padding: 0;
+            overflow-x: hidden; /* Impede a barra de rolagem horizontal */
+            background-color: #f0f0f0; /* Cor de fundo da página */
         }
 
         header {
-            background-color: rgba(0, 0, 255, 0.7); /* Dark blue with low transparency */
-            color: #fff;
-            text-align: center;
-            padding: 20px;
             position: fixed;
-            width: 100%;
             top: 0;
-            transition: top 0.3s; /* Add smooth transition effect */
+            width: 100%;
             z-index: 1;
+            background: linear-gradient(to bottom, rgba(0, 0, 255, 0.7), rgba(0, 0, 255, 0)); /* Degrade azul transparente inferior */
+            transition: top 0.3s; /* Adiciona transição para suavizar o efeito */
         }
 
         nav {
             display: flex;
-            justify-content: center;
-            background-color: #ddd;
-            padding: 10px;
+            justify-content: space-between;
+            align-items: center;
+            padding: 10px 20px;
+        }
+
+        nav button {
+            background: none;
+            border: none;
+            padding: 8px 12px;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s, color 0.3s;
+            font-weight: bold; /* Texto em negrito */
+        }
+
+        nav button:hover {
+            background: linear-gradient(to bottom right, #ffa500, rgba(255, 165, 0, 0.7)); /* Degrade alaranjado ao passar o mouse */
+            color: #fff;
+            border-radius: 10px; /* Borda arredondada */
+        }
+
+        nav img {
+            max-width: 100%;
+            height: auto;
+            display: block;
+            margin: 0 auto; /* Centraliza a imagem */
         }
 
         section {
-            display: none;
             padding: 20px;
             text-align: center;
+            display: none;
+            margin-top: 80px;
+        }
+
+        section img {
+            max-width: 100%;
+            height: auto;
         }
 
         section.active {
             display: block;
         }
 
+        .content {
+            margin-top: 100vh;
+            margin-bottom: 0; /* Remove a margem inferior para evitar espaço extra */
+        }
+
+        /* Estilo adicional para o GIF no topo */
+        .gif-container {
+            width: 100%;
+            height: 100vh;
+            overflow: hidden;
+            position: relative;
+        }
+
+        .gif {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            max-width: 100%;
+            max-height: 100%;
+        }
+
         footer {
-            background: linear-gradient(to right, #333, #555); /* Dark gray to slightly lighter gray gradient */
+            background: linear-gradient(to right, #333, #555);
             color: #fff;
             text-align: center;
-            padding: 10px;
-            position: fixed;
-            bottom: 0;
+            padding: 20px;
             width: 100%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            z-index: 1;
+            margin-top: 20px; /* Adiciona margem superior para separar do conteúdo */
         }
 
         footer img {
-            max-height: 30px; /* Adjust as needed */
+            max-height: 30px;
             margin-right: 10px;
         }
 
@@ -70,25 +115,31 @@
             text-decoration: none;
             font-size: 18px;
         }
-
-        .content {
-            margin-top: 100px; /* Adjust as needed based on header height */
-        }
     </style>
 </head>
 
 <body>
 
-    <header>
-        <img src="caminho/da/imagem.jpg" alt="Logo">
-        <h1>Meu Site no GitHub</h1>
-    </header>
+    <div class="gif-container">
+        <!-- Incluir o caminho real para o seu GIF -->
+        <img class="gif" src="caminho/do/seu/gif.gif" alt="GIF no Topo">
+    </div>
 
-    <nav>
-        <button onclick="showSection(1)">Opção 1</button>
-        <button onclick="showSection(2)">Opção 2</button>
-        <button onclick="showSection(3)">Opção 3</button>
-    </nav>
+    <header>
+        <nav>
+            <div>
+                <button onclick="showSection(1)">Opção 1</button>
+                <button onclick="showSection(2)">Opção 2</button>
+                <button onclick="showSection(3)">Opção 3</button>
+            </div>
+            <img src="caminho/do/seu/logo.png" alt="Logo">
+            <div>
+                <button onclick="showSection(4)">Opção 4</button>
+                <button onclick="showSection(5)">Opção 5</button>
+                <button onclick="showSection(6)">Opção 6</button>
+            </div>
+        </nav>
+    </header>
 
     <div class="content">
         <section id="section1" class="active">
@@ -104,6 +155,21 @@
         <section id="section3">
             <h2>Opção 3</h2>
             <p>Conteúdo da Opção 3...</p>
+        </section>
+
+        <section id="section4">
+            <h2>Opção 4</h2>
+            <p>Conteúdo da Opção 4...</p>
+        </section>
+
+        <section id="section5">
+            <h2>Opção 5</h2>
+            <p>Conteúdo da Opção 5...</p>
+        </section>
+
+        <section id="section6">
+            <h2>Opção 6</h2>
+            <p>Conteúdo da Opção 6...</p>
         </section>
     </div>
 
@@ -128,15 +194,19 @@
             document.getElementById('section' + sectionNumber).classList.add('active');
         }
 
-        // Hide or show the header on scroll
+        // Esconde ou mostra o cabeçalho ao rolar
         let prevScrollPos = window.pageYOffset;
         window.onscroll = function () {
             let currentScrollPos = window.pageYOffset;
+
             if (prevScrollPos > currentScrollPos) {
+                // Rolar para cima, mostra cabeçalho
                 document.querySelector("header").style.top = "0";
             } else {
-                document.querySelector("header").style.top = "-70px"; /* Adjust as needed based on header height */
+                // Rolar para baixo, esconde cabeçalho
+                document.querySelector("header").style.top = "-70px";
             }
+
             prevScrollPos = currentScrollPos;
         };
     </script>
