@@ -3,23 +3,100 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="styles.css">
-    <title>Minha Página</title>
+    <title>Meu Site</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f4f4f4;
+        }
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-around;
+            background-color: #444;
+            padding: 1em;
+        }
+
+        section {
+            max-width: 800px;
+            margin: auto;
+            padding: 20px;
+        }
+
+        .slide {
+            display: none;
+        }
+
+        .slide.active {
+            display: block;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 1em;
+        }
+    </style>
 </head>
 <body>
+
+    <!-- Cabeçalho -->
     <header>
+        <img src="caminho-da-imagem.jpg" alt="Logo do Site" width="200">
         <h1>Meu Site</h1>
     </header>
+
+    <!-- Navegação -->
+    <nav>
+        <a href="#" onclick="showSlide(1)">Opção 1</a>
+        <a href="#" onclick="showSlide(2)">Opção 2</a>
+        <a href="#" onclick="showSlide(3)">Opção 3</a>
+    </nav>
+
+    <!-- Slides -->
     <section>
-        <h2>Seção 1</h2>
-        <p>Conteúdo da seção 1...</p>
+        <div id="slide1" class="slide active">
+            <h2>Slide 1</h2>
+            <p>Conteúdo do Slide 1.</p>
+        </div>
+        <div id="slide2" class="slide">
+            <h2>Slide 2</h2>
+            <p>Conteúdo do Slide 2.</p>
+        </div>
+        <div id="slide3" class="slide">
+            <h2>Slide 3</h2>
+            <p>Conteúdo do Slide 3.</p>
+        </div>
     </section>
-    <section>
-        <h2>Seção 2</h2>
-        <p>Conteúdo da seção 2...</p>
-    </section>
+
+    <!-- Informações Finais -->
     <footer>
-        <p>&copy; 2023 Meu Site</p>
+        <p>Informações Finais do Site.</p>
     </footer>
+
+    <script>
+        function showSlide(slideNumber) {
+            // Esconder todos os slides
+            const slides = document.querySelectorAll('.slide');
+            slides.forEach(slide => {
+                slide.classList.remove('active');
+            });
+
+            // Mostrar o slide selecionado
+            const selectedSlide = document.getElementById(`slide${slideNumber}`);
+            selectedSlide.classList.add('active');
+        }
+    </script>
+
 </body>
 </html>
