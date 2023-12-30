@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Minha Página no GitHub</title>
+    <title>Azulara</title>
     <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap">
     <style>
         body {
@@ -47,8 +47,9 @@
         }
 
         nav button:hover {
-            background: linear-gradient(to bottom right, #ff69b4, rgba(255, 105, 180, 0.7)); /* Degradê rosa */
+            background: linear-gradient(to bottom right, #ff69b4, rgba(203, 0, 106, 0.7)); /* Degradê rosa */
             color: #fff; /* Cor branca */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra externa ao passar o mouse */
         }
 
         nav img {
@@ -150,8 +151,11 @@
 
         .social-icons {
             display: flex;
-            flex-direction: row;
+            flex-direction: column; /* Mude para column */
             gap: 10px;
+            align-items: flex-start; /* Alinhado à esquerda verticalmente */
+
+        
         }
 
         .social-icons a {
@@ -184,21 +188,21 @@
 <body>
 
     <div class="gif-container">
-        <img class="gif" src="caminho/do/seu/gif.gif" alt="GIF no Topo">
+        <img class="gif" src="Imagens/bg_platinum.gif" alt="GIF no Topo">
     </div>
 
     <header>
         <nav>
             <div>
-                <button onclick="showSection(1)">Opção 1</button>
-                <button onclick="showSection(2)">Opção 2</button>
-                <button onclick="showSection(3)">Opção 3</button>
+                <button onclick="showSection(1)">Jogos</button>
+                <button onclick="showSection(2)">Quem somos</button>
+                <button onclick="showSection(3)">Discord</button>
             </div>
-            <img src="caminho/do/seu/logo.png" alt="Logo">
+            <img src="Imagens/azulara_logo.png" alt="Logo">
             <div>
-                <button onclick="showSection(4)">Opção 4</button>
-                <button onclick="showSection(5)">Opção 5</button>
-                <button onclick="showSection(6)">Opção 6</button>
+                <button onclick="showSection(4)">News</button>
+                <button onclick="showSection(5)">Contato</button>
+                <button onclick="showSection(6)">Em breve</button>
             </div>
         </nav>
     </header>
@@ -206,13 +210,13 @@
     <div class="content">
         <section id="section1" class="active">
             <div class="gif-container">
-                <img class="gif" src="caminho/do/seu/gif.gif" alt="GIF no Topo">
+                <img class="gif" src="Imagens/bg_platinum" alt="GIF no Topo">
             </div>
             <div class="container-behind"></div>
             <div class="option-container">
                 <div class="option-box">
-                    <h2 class="option-title">Opção 1</h2>
-                    <p class="option-content">Conteúdo da Opção 1...</p>
+                    <h2 class="option-title">Jogos</h2>
+                    <p class="option-content">Ainda em desenvolvimento, aguarde...</p>
                 </div>
             </div>
         </section>
@@ -221,8 +225,8 @@
             <div class="container-behind"></div>
             <div class="option-container">
                 <div class="option-box">
-                    <h2 class="option-title">Opção 2</h2>
-                    <p class="option-content">Conteúdo da Opção 2...</p>
+                    <h2 class="option-title">Quem somos?</h2>
+                    <p class="option-content">Somos um estúdio de desenvolvimento indie.</p>
                 </div>
             </div>
         </section>
@@ -231,8 +235,31 @@
             <div class="container-behind"></div>
             <div class="option-container">
                 <div class="option-box">
-                    <h2 class="option-title">Opção 3</h2>
-                    <p class="option-content">Conteúdo da Opção 3...</p>
+                    <h2 class="option-title">Discord</h2>
+                    <p class="option-content">     <meta charset="UTF-8" />    <meta content="IE=edge" http-equiv="X-UA-Compatible" />    <meta content="width=device-width, initial-scale=1.0" name="viewport" />    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            display: center;
+            justify-content: center;
+            align-items: center;
+            height: 100vh;
+            background-color: #f0f0f0; /* Cor de fundo da página */
+        }
+
+        #widget-container {
+            width: 840px; /* Largura do contêiner do widget */
+            height: 400px; /* Altura do contêiner do widget */
+            border: 1px solid #ccc; /* Borda do contêiner do widget */
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra do contêiner do widget */
+        }
+    </style>     
+<div id="widget-container">
+	        
+	<!--  Código do Widgetbot aqui  -->        <widgetbot style="width: 100%; height: 100%;" channel="1188652399250898964" server="1086306542854344805"></widgetbot>    
+</div>
+    <script src="https://cdn.jsdelivr.net/npm/@widgetbot/html-embed"></script> 
+</p>
                 </div>
             </div>
         </section>
@@ -241,8 +268,8 @@
             <div class="container-behind"></div>
             <div class="option-container">
                 <div class="option-box">
-                    <h2 class="option-title">Opção 4</h2>
-                    <p class="option-content">Conteúdo da Opção 4...</p>
+                    <h2 class="option-title">Novidades</h2>
+                    <p class="option-content">Novidades e notícias em breve, aguarde...</p>
                 </div>
             </div>
         </section>
@@ -251,8 +278,8 @@
             <div class="container-behind"></div>
             <div class="option-container">
                 <div class="option-box">
-                    <h2 class="option-title">Opção 5</h2>
-                    <p class="option-content">Conteúdo da Opção 5...</p>
+                    <h2 class="option-title">Contatos</h2>
+                    <p class="option-content">E-mail <br> telefone.</p>
                 </div>
             </div>
         </section>
@@ -261,8 +288,8 @@
             <div class="container-behind"></div>
             <div class="option-container">
                 <div class="option-box">
-                    <h2 class="option-title">Opção 6</h2>
-                    <p class="option-content">Conteúdo da Opção 6...</p>
+                    <h2 class="option-title">Em breve</h2>
+                    <p class="option-content">Em manutenção...</p>
                 </div>
             </div>
         </section>
@@ -280,7 +307,7 @@
        
     </footer>
      <div class="footer-small">
-            <p>&copy; 2023 Seu Nome. Todos os direitos reservados.</p>
+            <p>&copy; 2023 Azulara. Todos os direitos reservados.</p>
         </div>
 
     <script>
