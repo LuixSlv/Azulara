@@ -5,13 +5,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Minha Página no GitHub</title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap">
     <style>
         body {
-            font-family: Arial, sans-serif;
+            font-family: 'Oswald', sans-serif;
             margin: 0;
             padding: 0;
-            overflow-x: hidden; /* Impede a barra de rolagem horizontal */
-            background-color: #f0f0f0; /* Cor de fundo da página */
+            overflow-x: hidden;
+            background: #fff; /* Fundo branco do site */
         }
 
         header {
@@ -19,8 +20,9 @@
             top: 0;
             width: 100%;
             z-index: 1;
-            background: linear-gradient(to bottom, rgba(0, 0, 255, 0.7), rgba(0, 0, 255, 0)); /* Degrade azul transparente inferior */
-            transition: top 0.3s; /* Adiciona transição para suavizar o efeito */
+            background: linear-gradient(to bottom, rgba(0, 0, 255, 0.7), rgba(0, 0, 255, 0));
+            transition: top 0.3s;
+            padding: 20px 0;
         }
 
         nav {
@@ -33,31 +35,36 @@
         nav button {
             background: none;
             border: none;
-            padding: 8px 12px;
-            color: #fff;
+            padding: 12px 20px;
+            color: #fff; /* Cor branca */
             cursor: pointer;
-            transition: background-color 0.3s, color 0.3s;
-            font-weight: bold; /* Texto em negrito */
+            transition: background 0.3s, color 0.3s;
+            font-weight: bold;
+            font-size: 16px;
+            font-family: 'Oswald', sans-serif;
+            border-radius: 30px; /* Bordas circulares maiores */
+            margin: 0 5px; /* Margem igual entre os botões */
         }
 
         nav button:hover {
-            background: linear-gradient(to bottom right, #ffa500, rgba(255, 165, 0, 0.7)); /* Degrade alaranjado ao passar o mouse */
-            color: #fff;
-            border-radius: 10px; /* Borda arredondada */
+            background: linear-gradient(to bottom right, #ff69b4, rgba(255, 105, 180, 0.7)); /* Degradê rosa */
+            color: #fff; /* Cor branca */
         }
 
         nav img {
             max-width: 100%;
             height: auto;
             display: block;
-            margin: 0 auto; /* Centraliza a imagem */
+            margin: 0 auto;
         }
 
         section {
             padding: 20px;
             text-align: center;
             display: none;
-            margin-top: 80px;
+            margin-top: 50vh;
+            transform: translateY(-50%);
+            position: relative;
         }
 
         section img {
@@ -71,13 +78,12 @@
 
         .content {
             margin-top: 100vh;
-            margin-bottom: 0; /* Remove a margem inferior para evitar espaço extra */
+            margin-bottom: 0;
         }
 
-        /* Estilo adicional para o GIF no topo */
         .gif-container {
             width: 100%;
-            height: 100vh;
+            height: 50vh;
             overflow: hidden;
             position: relative;
         }
@@ -91,22 +97,60 @@
             max-height: 100%;
         }
 
+        .option-container {
+            background: linear-gradient(to bottom, #fff, #fff); /* Degradê branco do box de conteúdo */
+            border-radius: 20px;
+            padding: 20px;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+            position: relative;
+            z-index: 1;
+            overflow: hidden;
+            margin: 10px; /* Margem igual em todas as opções */
+        }
+
+        .container-behind {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: linear-gradient(to right, #1e90ff, #1e90ff); /* Degradê azul */
+            z-index: 0;
+        }
+
+
+
+        .option-title {
+            font-size: 24px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 10px;
+        }
+
+        .option-content {
+            font-size: 18px;
+            color: #555;
+        }
+
         footer {
             background: linear-gradient(to right, #333, #555);
             color: #fff;
             text-align: center;
-            padding: 20px;
+            padding: 30px;
             width: 100%;
-            margin-top: 20px; /* Adiciona margem superior para separar do conteúdo */
+            display: flex;
+            flex-direction: row;
+            justify-content: space-between;
+            align-items: center;
         }
 
         footer img {
-            max-height: 30px;
-            margin-right: 10px;
+            max-height: 50px;
         }
 
         .social-icons {
             display: flex;
+            flex-direction: row;
             gap: 10px;
         }
 
@@ -115,13 +159,31 @@
             text-decoration: none;
             font-size: 18px;
         }
+
+        .copyright {
+            font-size: 12px;
+        }
+
+        /* Rodapé adicional para direitos de criação */
+        .footer-small {
+            background: linear-gradient(to right, #333, #555);
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            width: 100%;
+            margin-top: -20px;
+            display: flex;
+            flex-direction: row;
+            justify-content: center;
+            align-items: center;
+        }
+
     </style>
 </head>
 
 <body>
 
     <div class="gif-container">
-        <!-- Incluir o caminho real para o seu GIF -->
         <img class="gif" src="caminho/do/seu/gif.gif" alt="GIF no Topo">
     </div>
 
@@ -143,67 +205,99 @@
 
     <div class="content">
         <section id="section1" class="active">
-            <h2>Opção 1</h2>
-            <p>Conteúdo da Opção 1...</p>
+            <div class="gif-container">
+                <img class="gif" src="caminho/do/seu/gif.gif" alt="GIF no Topo">
+            </div>
+            <div class="container-behind"></div>
+            <div class="option-container">
+                <div class="option-box">
+                    <h2 class="option-title">Opção 1</h2>
+                    <p class="option-content">Conteúdo da Opção 1...</p>
+                </div>
+            </div>
         </section>
 
         <section id="section2">
-            <h2>Opção 2</h2>
-            <p>Conteúdo da Opção 2...</p>
+            <div class="container-behind"></div>
+            <div class="option-container">
+                <div class="option-box">
+                    <h2 class="option-title">Opção 2</h2>
+                    <p class="option-content">Conteúdo da Opção 2...</p>
+                </div>
+            </div>
         </section>
 
         <section id="section3">
-            <h2>Opção 3</h2>
-            <p>Conteúdo da Opção 3...</p>
+            <div class="container-behind"></div>
+            <div class="option-container">
+                <div class="option-box">
+                    <h2 class="option-title">Opção 3</h2>
+                    <p class="option-content">Conteúdo da Opção 3...</p>
+                </div>
+            </div>
         </section>
 
         <section id="section4">
-            <h2>Opção 4</h2>
-            <p>Conteúdo da Opção 4...</p>
+            <div class="container-behind"></div>
+            <div class="option-container">
+                <div class="option-box">
+                    <h2 class="option-title">Opção 4</h2>
+                    <p class="option-content">Conteúdo da Opção 4...</p>
+                </div>
+            </div>
         </section>
 
         <section id="section5">
-            <h2>Opção 5</h2>
-            <p>Conteúdo da Opção 5...</p>
+            <div class="container-behind"></div>
+            <div class="option-container">
+                <div class="option-box">
+                    <h2 class="option-title">Opção 5</h2>
+                    <p class="option-content">Conteúdo da Opção 5...</p>
+                </div>
+            </div>
         </section>
 
         <section id="section6">
-            <h2>Opção 6</h2>
-            <p>Conteúdo da Opção 6...</p>
+            <div class="container-behind"></div>
+            <div class="option-container">
+                <div class="option-box">
+                    <h2 class="option-title">Opção 6</h2>
+                    <p class="option-content">Conteúdo da Opção 6...</p>
+                </div>
+            </div>
         </section>
     </div>
 
     <footer>
-        <img src="caminho/do/logo.png" alt="Logo">
+        <div>
+            <img src="caminho/do/logo_footer.png" alt="Logo do Rodapé">
+        </div>
         <div class="social-icons">
             <a href="#" target="_blank">Facebook</a>
             <a href="#" target="_blank">Twitter</a>
             <a href="#" target="_blank">Instagram</a>
         </div>
-        <p>Site criado por [Seu Nome]</p>
+       
     </footer>
+     <div class="footer-small">
+            <p>&copy; 2023 Seu Nome. Todos os direitos reservados.</p>
+        </div>
 
     <script>
         function showSection(sectionNumber) {
-            // Esconder todas as seções
             document.querySelectorAll('section').forEach(function (section) {
                 section.classList.remove('active');
             });
-
-            // Mostrar a seção selecionada
             document.getElementById('section' + sectionNumber).classList.add('active');
         }
 
-        // Esconde ou mostra o cabeçalho ao rolar
         let prevScrollPos = window.pageYOffset;
         window.onscroll = function () {
             let currentScrollPos = window.pageYOffset;
 
             if (prevScrollPos > currentScrollPos) {
-                // Rolar para cima, mostra cabeçalho
                 document.querySelector("header").style.top = "0";
             } else {
-                // Rolar para baixo, esconde cabeçalho
                 document.querySelector("header").style.top = "-70px";
             }
 
