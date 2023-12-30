@@ -100,14 +100,19 @@
         }
 
         .option-container {
-            background: linear-gradient(to bottom, #fff, #fff); /* Degradê branco do box de conteúdo */
+            width: 100%; /* Ajuste a largura conforme necessário */
+            max-height: 500px; /* Ajuste a altura máxima conforme necessário */
+            max-width: 400px;
+            overflow: auto; /* Adicione scroll se o conteúdo exceder as dimensões */
+            background: linear-gradient(to bottom, #E5E5E5, #fff, #E5E5E5);
             border-radius: 20px;
             padding: 20px;
             box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
             position: relative;
             z-index: 1;
-            overflow: hidden;
-            margin: 10px; /* Margem igual em todas as opções */
+            margin: 10px;
+            align-content: center;
+            justify-content: center;
         }
 
         .container-behind {
@@ -118,8 +123,9 @@
             height: 100%;
             background: linear-gradient(to right, #1e90ff, #1e90ff); /* Degradê azul */
             z-index: 0;
+            align-content: center;
+            justify-content: center;
         }
-
 
 
         .option-title {
@@ -141,8 +147,8 @@
             padding: 30px;
             width: 100%;
             display: flex;
-            flex-direction: column;
-            justify-content: space-around;
+            flex-direction: row;
+            justify-content: space-evenly;
             align-items: center;
         }
 
@@ -183,6 +189,18 @@
             justify-content: center;
             align-items: center;
         }
+               /* Adicionado estilos ao contêiner do Widgetbot */
+        #widget-container {
+            width: 840px;
+            height: 400px;
+            border: 1px solid #ccc;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            position: relative;
+            display: center;
+            justify-content: center; /* Centraliza horizontalmente */
+            align-items: center; /* Centraliza verticalmente */
+        }
+    </style>
 
     </style>
 </head>
@@ -235,23 +253,7 @@
                 <div class="option-box">
                     <h2 class="option-title">Discord</h2>
                     <p class="option-content">     <meta charset="UTF-8" />    <meta content="IE=edge" http-equiv="X-UA-Compatible" />    <meta content="width=device-width, initial-scale=1.0" name="viewport" />    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            display: center;
-            justify-content: center;
-            align-items: center;
-            height: 00vh;
-            background-color: #f0f0f0; /* Cor de fundo da página */
-        }
 
-        #widget-container {
-            width: 840px; /* Largura do contêiner do widget */
-            height: 400px; /* Altura do contêiner do widget */
-            border: 1px solid #ccc; /* Borda do contêiner do widget */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1); /* Sombra do contêiner do widget */
-            position: center;
-        }
     </style>     
 <div id="widget-container">
 	        
@@ -296,7 +298,7 @@
 
     <footer>
         <div>
-            <img src="Imagens/azulara_logo.png" alt="Logo do Rodapé" style="transform: scale(1);">
+            <img src="Imagens/azulara_logo.png" alt="Logo do Rodapé" style="transform: scale(0.4);">
         </div>
         <div class="social-icons">
             <a href="#" target="_blank">Facebook</a>
@@ -334,3 +336,4 @@
 </body>
 
 </html>
+
