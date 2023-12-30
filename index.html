@@ -1,350 +1,218 @@
 <!DOCTYPE html>
 <html lang="pt-br">
-
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Azulara</title>
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Oswald:wght@400;700&display=swap">
-    <style>
-        body {
-            font-family: 'Oswald', sans-serif;
-            margin: 0;
-            padding: 0;
-            overflow-x: hidden;
-            background: #fff; /* Fundo branco do site */
-        }
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Studio de Jogos</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Oswald', sans-serif;
+      font-weight: bold;
+      background: #f0f0f0;
+      transition: background 0.5s;
+    }
 
-        header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            z-index: 1;
-            background: linear-gradient(to bottom, rgba(0, 0, 255, 0.7), rgba(0, 0, 255, 0));
-            transition: top 0.3s;
-            padding: 2px 0;
-        }
+    /* Barra Superior */
+    #navbar {
+      background: linear-gradient(to bottom, rgba(0, 0, 255, 0.7), rgba(0, 0, 255, 0));
+      position: fixed;
+      width: 100%;
+      padding: 10px;
+      box-sizing: border-box;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      transition: background 0.5s, top 0.5s;
+      border-bottom-left-radius: 15px;
+      border-bottom-right-radius: 15px;
+      top: 0;
+    }
 
-        nav {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 10px 20px;
-        }
+    #navbar img {
+      max-height: 50px;
+      margin: 0 auto;
+      display: block;
+    }
 
-        nav button {
-            background: none;
-            border: none;
-            padding: 12px 20px;
-            color: #fff; /* Cor branca */
-            cursor: pointer;
-            transition: background 0.3s, color 0.3s;
-            font-weight: bold;
-            font-size: 16px;
-            font-family: 'Oswald', sans-serif;
-            border-radius: 30px; /* Bordas circulares maiores */
-            margin: 0 5px; /* Margem igual entre os botões */
-        }
+    #navbar a {
+      color: white;
+      text-decoration: none;
+      padding: 15px;
+      border-radius: 20px;
+      margin: 0 5px;
+      transition: background 0.3s;
+    }
 
-        nav button:hover {
-            background: linear-gradient(to bottom right, #ff69b4, rgba(203, 0, 106, 0.7)); /* Degradê rosa */
-            color: #fff; /* Cor branca */
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.5); /* Sombra externa ao passar o mouse */
-        }
+    #navbar a:hover {
+      background: linear-gradient(to right, #ff6b6b, #ff99ac);
+    }
 
-        nav img {
-            max-width: 100%;
-            height: auto;
-            display: block;
-            margin: 0 auto;
-        }
+    /* Conteúdo Central */
+    #content {
+      margin-top: 80px;
+      margin-bottom: 60px;
+      text-align: center;
+      padding: 20px;
+      background: none;
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      position: relative;
+      z-index: 1;
+    }
 
-        section {
-            padding: 20px;
-            text-align: center;
-            display: none;
-            margin-top: 20vh;
-            transform: translateY(-50%);
-            position: relative;
-        }
+    /* Rodapé */
+    #footer {
+      background: linear-gradient(to right, #333333, #000000);
+      color: white;
+      padding: 10px;
+      text-align: center;
+      width: 100%;
+      position: fixed;
+      bottom: 0;
+    }
 
-        section img {
-            max-width: 100%;
-            height: auto;
-        }
+    #footer img {
+      max-height: 30px;
+    }
 
-        section.active {
-            display: block;
-        }
+    #social-media {
+      margin-top: 10px;
+    }
 
-        .content {
-            margin-top: 20vh;
-            margin-bottom: 1vh;
-        }
+    /* Box de conteúdo ao clicar */
+    .hidden-content {
+      display: none;
+      margin-top: 20px;
+    }
 
-        .gif-container {
-            width: 100%;
-            margin-top: 20vh;
-            height: 20vh;
-            overflow: hidden;
-            position: static;
-        }
+    .visible-content {
+      display: block;
+    }
 
-        .gif {
-            position: relative;
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            max-width: 100%;
-            max-height: 100%;
-        }
+    /* Botão Mostrar Conteúdo */
+    #show-content-button {
+      display: none;
+      cursor: pointer;
+    }
 
-        .option-container {
-            width: 100%; /* Ajuste a largura conforme necessário */
-            max-height: 500px; /* Ajuste a altura máxima conforme necessário */
-            max-width: 400px;
-            overflow: auto; /* Adicione scroll se o conteúdo exceder as dimensões */
-            background: linear-gradient(to bottom, #E5E5E5, #fff, #E5E5E5);
-            border-radius: 20px;
-            padding: 20px;
-            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-            position: relative;
-            z-index: 1;
-            margin: 10px;
-            align-content: center;
-            justify-content: center;
-        }
+    /* Botões de Opções de Conteúdo */
+    .content-buttons {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      margin-top: 10px;
+    }
 
-        .container-behind {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            background: linear-gradient(to right, #1e90ff, #1e90ff); /* Degradê azul */
-            z-index: 0;
-            align-content: center;
-            justify-content: center;
-        }
+    .content-buttons a {
+      display: block;
+      margin: 5px;
+    }
 
+    /* Estilo para tela menor */
+    @media screen and (max-width: 768px) {
+      #navbar a {
+        display: none;
+      }
 
-        .option-title {
-            font-size: 24px;
-            font-weight: bold;
-            color: #333;
-            margin-bottom: 10px;
-        }
+      #show-content-button {
+        display: block;
+      }
 
-        .option-content {
-            font-size: 18px;
-            color: #555;
-        }
+      .content-buttons {
+        display: none;
+        flex-direction: column;
+      }
+    }
 
-        footer {
-            background: linear-gradient(to right, #333, #555);
-            color: #fff;
-            text-align: center;
-            padding: 30px;
-            width: 100%;
-            display: flex;
-            flex-direction: row;
-            justify-content: space-evenly;
-            align-items: center;
-        }
-
-         footer img {
-            width: auto; /* Largura fixa */
-            height: 100%; /* Altura ajustada proporcionalmente */
-        }
-
-        .social-icons {
-            display: flex;
-            flex-direction: column; /* Mude para column */
-            gap: 10px;
-            align-items: flex-start; /* Alinhado à esquerda verticalmente */
-
-        
-        }
-
-        .social-icons a {
-            color: #fff;
-            text-decoration: none;
-            font-size: 18px;
-        }
-
-        .copyright {
-            font-size: 12px;
-        }
-
-        /* Rodapé adicional para direitos de criação */
-        .footer-small {
-            background: linear-gradient(to right, #333, #555);
-            color: #fff;
-            text-align: center;
-            padding: 10px;
-            width: 100%;
-            margin-top: -20px;
-            display: flex;
-            flex-direction: row;
-            justify-content: center;
-            align-items: center;
-        }
-               /* Adicionado estilos ao contêiner do Widgetbot */
-        #widget-container {
-            width: 840px;
-            height: 400px;
-            border: 1px solid #ccc;
-            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-            position: relative;
-            display: center;
-            justify-content: center; /* Centraliza horizontalmente */
-            align-items: center; /* Centraliza verticalmente */
-        }
-	    
-	    @media screen and (max-width: 768px) {
-            nav {
-                flex-direction: column;
-                align-items: flex-start;
-            }
-
-            nav button {
-                margin: 5px 0;
-            }
-        }
-    </style>
-
-    </style>
+  </style>
+  <!-- Incluída a importação da fonte Oswald -->
+  <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
 </head>
-    <div class="gif-container">
-        <img class="gif" src="Imagens/bg_platinum.gif" alt="GIF no Topo">
-    </div>
 <body>
 
-    <header>
-        <nav>
-            <div>
-                <button onclick="showSection(1)">Jogos</button>
-                <button onclick="showSection(2)">Quem somos</button>
-                <button onclick="showSection(3)">Discord</button>
-            </div>
-            <img src="Imagens/azulara_logo.png" alt="Logo" style="transform: scale(0.5);">
-            <div>
-                <button onclick="showSection(4)">News</button>
-                <button onclick="showSection(5)">Contato</button>
-                <button onclick="showSection(6)">Em breve</button>
-            </div>
-        </nav>
-    </header>
-
-    <div class="content">
-        <section id="section1" class="active">
-          
-            <div class="container-behind"></div>
-            <div class="option-container">
-                <div class="option-box">
-                    <h2 class="option-title">Jogos</h2>
-                    <p class="option-content">Ainda em desenvolvimento, aguarde...</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="section2">
-            <div class="container-behind"></div>
-            <div class="option-container">
-                <div class="option-box">
-                    <h2 class="option-title">Quem somos?</h2>
-                    <p class="option-content">Somos um estúdio de desenvolvimento indie.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="section3">
-            <div class="container-behind"></div>
-            <div class="option-container">
-                <div class="option-box">
-                    <h2 class="option-title">Discord</h2>
-                    <p class="option-content">     <meta charset="UTF-8" />    <meta content="IE=edge" http-equiv="X-UA-Compatible" />    <meta content="width=device-width, initial-scale=1.0" name="viewport" />    <style>
-
-    </style>     
-<div id="widget-container">
-	        
-	<!--  Código do Widgetbot aqui  -->        <widgetbot style="width: 100%; height: 100%;" channel="1188652399250898964" server="1086306542854344805"></widgetbot>    
-</div>
-    <script src="https://cdn.jsdelivr.net/npm/@widgetbot/html-embed"></script> 
-</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="section4">
-            <div class="container-behind"></div>
-            <div class="option-container">
-                <div class="option-box">
-                    <h2 class="option-title">Novidades</h2>
-                    <p class="option-content">Novidades e notícias em breve, aguarde...</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="section5">
-            <div class="container-behind"></div>
-            <div class="option-container">
-                <div class="option-box">
-                    <h2 class="option-title">Contatos</h2>
-                    <p class="option-content">E-mail <br> telefone.</p>
-                </div>
-            </div>
-        </section>
-
-        <section id="section6">
-            <div class="container-behind"></div>
-            <div class="option-container">
-                <div class="option-box">
-                    <h2 class="option-title">Em breve</h2>
-                    <p class="option-content">Em manutenção...</p>
-                </div>
-            </div>
-        </section>
+  <!-- Barra Superior -->
+  <div id="navbar">
+    <div>
+      <a href="#">Botão 1</a>
+      <a href="#">Botão 2</a>
+      <a href="#">Botão 3</a>
     </div>
+    <img src="logo.png" alt="Logo">
+    <div>
+      <a href="#" onclick="showContent('content1')">Botão 4</a>
+      <a href="#" onclick="showContent('content2')">Botão 5</a>
+      <a href="#" onclick="showContent('content3')">Botão 6</a>
+    </div>
+    <!-- Botão Mostrar Conteúdo -->
+    <div id="show-content-button" onclick="toggleContentButtons()">Mostrar Conteúdo</div>
+    <!-- Botões de Opções de Conteúdo (mesmos que os outros) -->
+    <div class="content-buttons">
+      <a href="#" onclick="showContent('content1')">Botão 4</a>
+      <a href="#" onclick="showContent('content2')">Botão 5</a>
+      <a href="#" onclick="showContent('content3')">Botão 6</a>
+    </div>
+  </div>
 
-    <footer>
-        <div>
-            <img src="Imagens/azulara_logo.png" alt="Logo do Rodapé" style="transform: scale(0.4);">
-        </div>
-        <div class="social-icons">
-            <a href="#" target="_blank">Facebook</a>
-            <a href="#" target="_blank">Twitter</a>
-            <a href="#" target="_blank">Instagram</a>
-        </div>
-       
-    </footer>
-     <div class="footer-small">
-            <p>&copy; 2023 Azulara. Todos os direitos reservados.</p>
-        </div>
+  <!-- Conteúdo Central -->
+  <div id="content">
+    <h1>Título do Jogo</h1>
+    <p>Informações sobre o jogo...</p>
+  </div>
 
-    <script>
-        function showSection(sectionNumber) {
-            document.querySelectorAll('section').forEach(function (section) {
-                section.classList.remove('active');
-            });
-            document.getElementById('section' + sectionNumber).classList.add('active');
-        }
+  <!-- Box de conteúdo ao clicar -->
+  <div id="content1" class="hidden-content">
+    <h2>Conteúdo 1</h2>
+    <p>Informações detalhadas sobre o conteúdo 1.</p>
+  </div>
 
-        let prevScrollPos = window.pageYOffset;
-        window.onscroll = function () {
-            let currentScrollPos = window.pageYOffset;
+  <div id="content2" class="hidden-content">
+    <h2>Conteúdo 2</h2>
+    <p>Informações detalhadas sobre o conteúdo 2.</p>
+  </div>
 
-            if (prevScrollPos > currentScrollPos) {
-                document.querySelector("header").style.top = "0";
-            } else {
-                document.querySelector("header").style.top = "-70px";
-            }
+  <div id="content3" class="hidden-content">
+    <h2>Conteúdo 3</h2>
+    <p>Informações detalhadas sobre o conteúdo 3.</p>
+  </div>
 
-            prevScrollPos = currentScrollPos;
-        };
-    </script>
+  <!-- Rodapé -->
+  <div id="footer">
+    <img src="small-logo.png" alt="Small Logo">
+    <div id="social-media">
+      <a href="#" target="_blank">Facebook</a>
+      <a href="#" target="_blank">Twitter</a>
+      <a href="#" target="_blank">Instagram</a>
+    </div>
+    <p>&copy; 2023 Studio de Jogos. Todos os direitos reservados.</p>
+  </div>
+
+  <script>
+    function showContent(contentId) {
+      var contents = document.querySelectorAll('.hidden-content');
+      for (var i = 0; i < contents.length; i++) {
+        contents[i].classList.remove('visible-content');
+      }
+      document.getElementById(contentId).classList.add('visible-content');
+    }
+
+    function toggleContentButtons() {
+      var contentButtons = document.querySelector('.content-buttons');
+      contentButtons.style.display = (contentButtons.style.display === 'flex') ? 'none' : 'flex';
+    }
+
+    let prevScrollPos = window.pageYOffset;
+    window.onscroll = function () {
+      let currentScrollPos = window.pageYOffset;
+      if (prevScrollPos > currentScrollPos) {
+        document.querySelector("#navbar").style.top = "0";
+      } else {
+        document.querySelector("#navbar").style.top = "-70px";
+      }
+      prevScrollPos = currentScrollPos;
+    };
+  </script>
 
 </body>
-
 </html>
-
