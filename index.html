@@ -3,43 +3,121 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Azulara</title>
+    <title>AZALURE</title>
     <link rel="stylesheet" href="styles.css">
-<style>
-        /* Adicione estilos adicionais conforme necessário */
-        section {
-            height: 500px; /* Ajuste conforme necessário */
-            border: 1px solid #ddd;
-            text-align: center;
-            font-size: 24px;
-            padding-top: 200px; /* Ajuste conforme necessário */
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            margin: 0;
+            padding: 0;
+            background-color: #f2f2f2;
         }
-</style>
+
+        header {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 20px;
+        }
+
+        nav {
+            position: fixed;
+            top: 0;
+            left: 0;
+            right: 0;
+            display: flex;
+            justify-content: space-between;
+            background: linear-gradient(to right, #3498db, #2980b9);
+            padding: 10px;
+            border-bottom-left-radius: 15px;
+            border-bottom-right-radius: 15px;
+            z-index: 1000;
+        }
+
+        .logo {
+            width: 50px; /* Ajuste conforme necessário */
+            height: 50px; /* Ajuste conforme necessário */
+        }
+
+        .buttons-container {
+            display: flex;
+            align-items: center;
+        }
+
+        .button {
+            background: linear-gradient(to right, #3498db, #2980b9);
+            color: #fff;
+            border: none;
+            padding: 15px 30px;
+            text-align: center;
+            text-decoration: none;
+            display: inline-block;
+            font-size: 16px;
+            margin: 4px;
+            cursor: pointer;
+            border-radius: 15px;
+        }
+
+        section {
+            padding: 20px;
+        }
+
+        section:nth-child(even) {
+            background-color: #ddd;
+        }
+
+        footer {
+            background-color: #333;
+            color: #fff;
+            text-align: center;
+            padding: 10px;
+            position: relative;
+            z-index: 1;
+        }
+    </style>
 </head>
 <body>
 
     <header>
-        <img src="Imagens/bg_platinum.gif" alt="GIF de Início">
-        <h1>AZULARA</h1>
+        <img src="Imagens/bg_platinum.gif" alt="GIF de Início" class="logo">
+        <h1>AZALURE</h1>
     </header>
 
     <nav>
-        <button onclick="showSection(1)">Quem nós somos?</button>
-        <button onclick="showSection(2)">Nossos jogos</button>
-        <button onclick="showSection(3)">Discord</button>
+        <div class="buttons-container">
+            <button class="button" onclick="scrollToSection('section1')">Opção 1</button>
+            <button class="button" onclick="scrollToSection('section2')">Opção 2</button>
+            <button class="button" onclick="scrollToSection('section3')">Opção 3</button>
+        </div>
+        <img src="logo.gif" alt="GIF de Início" class="logo">
+        <div class="buttons-container">
+            <button class="button" onclick="scrollToSection('section4')">Opção 4</button>
+            <button class="button" onclick="scrollToSection('section5')">Opção 5</button>
+            <button class="button" onclick="scrollToSection('section6')">Opção 6</button>
+        </div>
     </nav>
 
-    <section id="section1" class="active">
-        <h2>Quem nós somos?</h2>
-        <p>Uma empresa indie brasileira de desenvolvimento de jogos.</p>
+    <section id="section1">
+        <h2>Jogos</h2>
+        <p>Novidades em breve...</p>
     </section>
 
     <section id="section2">
-        <h2>Nossos jogos</h2>
-        <p>Novidades em breve.</p>
+        <h2>Quem nós somos?</h2>
+        <p>Um estúdio indie de desenvolvedores.</p>
     </section>
 
     <section id="section3">
+        <h2>Noticias</h2>
+        <p>Conteúdo da Opção 3...</p>
+    </section>
+
+    <section id="section4">
+        <h2>Contato</h2>
+        <p>Conteúdo da Opção 4...</p>
+    </section>
+
+    <section id="section5">
         <h2>Discord</h2>
         <p>     
 <meta charset="UTF-8" />    <meta content="IE=edge" http-equiv="X-UA-Compatible" />    <meta content="width=device-width, initial-scale=1.0" name="viewport" />    <style>
@@ -69,11 +147,81 @@
     </br>
     </br>
     </br>
-</p>
+    </p>
+    </section>
+
+    <section id="section6">
+        <h2>Trabalhe conosco</h2>
+        <p>Conteúdo da Opção 6...</p>
     </section>
 
     <footer>
-        <p>Informações Finais do Site</p>
+        <p>2023 Azalure, ALL RIGHTS RESERVED.</p>
+    </footer>
+
+    <script src="scripts.js"></script>
+    <script>
+        function scrollToSection(sectionId) {
+            const section = document.getElementById(sectionId);
+            if (section) {
+                section.scrollIntoView({ behavior: 'smooth' });
+            }
+        }
+    </script>
+
+</body>
+</html>
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Azulara</title>
+    <link rel="stylesheet" href="styles.css">
+<style>
+        /* Adicione estilos adicionais conforme necessário */
+        section {
+            height: 500px; /* Ajuste conforme necessário */
+            border: 1px solid #ddd;
+            text-align: center;
+            font-size: 24px;
+            padding-top: 10px; /* Ajuste conforme necessário */
+        }
+</style>
+</head>
+<body>
+
+    <header>
+        <img src="Imagens/bg_platinum.gif" alt="GIF de Início">
+        <h1>AZULARA</h1>
+    </header>
+
+    <nav>
+        <button onclick="showSection(1)">Quem nós somos?</button>
+        <button onclick="showSection(2)">Nossos jogos</button>
+        <button onclick="showSection(3)">Discord</button>
+    </nav>
+
+    <section id="section1" class="active">
+        <h2>Quem nós somos?</h2>
+        <p>Uma empresa indie brasileira de desenvolvimento de jogos.</p>
+    </section>
+
+    <section id="section2">
+        <h2>Nossos jogos</h2>
+        <p>Novidades em breve.</p>
+    </section>
+
+    <section id="section3">
+        <h2>Discord</h2>
+
+    </section>
+
+    <footer>
+        <p>Azulara</p>
     </footer>
 
 	<script src="scripts.js"></script>
