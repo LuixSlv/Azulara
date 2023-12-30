@@ -8,18 +8,30 @@ header {
     background-color: #333;
     color: #fff;
     text-align: center;
-    padding: 1em;
+    padding: 20px;
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    background-color: #ddd;
+    padding: 10px;
 }
 
 section {
-    margin: 20px;
+    display: none;
+    padding: 20px;
+}
+
+section.active {
+    display: block;
 }
 
 footer {
     background-color: #333;
     color: #fff;
     text-align: center;
-    padding: 1em;
+    padding: 10px;
     position: fixed;
     bottom: 0;
     width: 100%;
