@@ -49,17 +49,64 @@
       background: linear-gradient(to right, #ff6b6b, #ff99ac);
     }
 
+    /* Botão de Trocar Idioma */
+    #language-button {
+      color: white;
+      cursor: pointer;
+      padding: 15px;
+      border-radius: 20px;
+      margin: 0 5px;
+      transition: background 0.3s;
+    }
+
+    #language-dropdown {
+      display: none;
+      position: absolute;
+      top: 60px;
+      right: 10px;
+      background: white;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      padding: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    }
+
+    #language-dropdown a {
+      display: block;
+      color: #333;
+      text-decoration: none;
+      padding: 8px;
+      transition: background 0.3s;
+    }
+
+    #language-dropdown a:hover {
+      background: #f0f0f0;
+    }
+
     /* Conteúdo Central */
-    #content {
-      margin-top: 80px;
-      margin-bottom: 60px;
-      text-align: center;
+    .content-container {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: calc(100vh - 140px); /* Ajusta a altura para levar em conta a altura da barra superior */
+    }
+
+    .hidden-content {
+      display: none;
       padding: 20px;
-      background: none;
+      background: linear-gradient(to bottom, #f5f5f5, #e0e0e0);
       border-radius: 10px;
       box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
-      position: relative;
-      z-index: 1;
+      width: 80%;
+      max-width: 600px;
+    }
+
+    .visible-content {
+      display: block;
+    }
+
+    h2, p {
+      margin: 0;
     }
 
     /* Rodapé */
@@ -69,8 +116,6 @@
       padding: 10px;
       text-align: center;
       width: 100%;
-      position: fixed;
-      bottom: 0;
     }
 
     #footer img {
@@ -84,6 +129,12 @@
     /* Box de conteúdo ao clicar */
     .hidden-content {
       display: none;
+      padding: 20px;
+      background: linear-gradient(to bottom, #f5f5f5, #e0e0e0);
+      border-radius: 10px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+      width: 80%;
+      max-width: 600px;
       margin-top: 20px;
     }
 
@@ -91,23 +142,58 @@
       display: block;
     }
 
-    /* Botão Mostrar Conteúdo */
+    /* Botão Mostrar Conteúdo (visível apenas em dispositivos móveis) */
     #show-content-button {
       display: none;
       cursor: pointer;
     }
 
-    /* Botões de Opções de Conteúdo */
+    /* Botões de Opções de Conteúdo (inicialmente ocultos) */
     .content-buttons {
-      display: flex;
-      flex-wrap: wrap;
-      justify-content: center;
-      margin-top: 10px;
+      display: none;
+      flex-direction: column;
+      align-items: center;
+      position: fixed;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      background: linear-gradient(to bottom, #4a90e2, #4169e1);
+      padding: 20px;
+      box-shadow: 0 0 10px rgba(0, 0, 0, 0.3);
+      border-radius: 10px;
+      z-index: 2;
     }
 
     .content-buttons a {
       display: block;
-      margin: 5px;
+      margin: 10px;
+      color: white;
+      text-decoration: none;
+      padding: 10px;
+      border-radius: 20px;
+      transition: background 0.3s;
+    }
+
+    .content-buttons a:hover {
+      background: linear-gradient(to right, #ff6b6b, #ff99ac);
+    }
+
+    /* Gif acima do título do jogo */
+    #gif-above-title {
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      z-index: 0;
+    }
+
+    /* Gif abaixo do conteúdo e acima do rodapé */
+    #gif-below-content {
+      margin-top: 20px;
+      width: 100%;
+      max-width: 100%;
+      height: auto;
+      z-index: 0;
     }
 
     /* Estilo para tela menor */
@@ -116,13 +202,12 @@
         display: none;
       }
 
-      #show-content-button {
+      #language-button {
         display: block;
       }
 
-      .content-buttons {
-        display: none;
-        flex-direction: column;
+      #show-content-button {
+        display: block;
       }
     }
 
@@ -131,6 +216,9 @@
   <link href="https://fonts.googleapis.com/css2?family=Oswald:wght@300&display=swap" rel="stylesheet">
 </head>
 <body>
+
+  <!-- Gif acima do título do jogo -->
+  <img id="gif-above-title" src="seu_gif_acima_do_titulo.gif" alt="GIF acima do título do jogo">
 
   <!-- Barra Superior -->
   <div id="navbar">
@@ -147,6 +235,14 @@
     </div>
     <!-- Botão Mostrar Conteúdo -->
     <div id="show-content-button" onclick="toggleContentButtons()">Mostrar Conteúdo</div>
+    <!-- Botão de Trocar Idioma -->
+    <div id="language-button" onclick="toggleLanguageDropdown()">Idioma</div>
+    <!-- Dropdown de Idioma -->
+    <div id="language-dropdown">
+      <a href="#" onclick="changeLanguage('pt-br')">Português</a>
+      <a href="#" onclick="changeLanguage('en')">English</a>
+      <!-- Adicione mais opções de idioma conforme necessário -->
+    </div>
     <!-- Botões de Opções de Conteúdo (mesmos que os outros) -->
     <div class="content-buttons">
       <a href="#" onclick="showContent('content1')">Botão 4</a>
@@ -156,26 +252,25 @@
   </div>
 
   <!-- Conteúdo Central -->
-  <div id="content">
-    <h1>Título do Jogo</h1>
-    <p>Informações sobre o jogo...</p>
+  <div class="content-container">
+    <div id="content1" class="hidden-content">
+      <h2>Conteúdo 1</h2>
+      <p>Informações detalhadas sobre o conteúdo 1.</p>
+    </div>
+
+    <div id="content2" class="hidden-content">
+      <h2>Conteúdo 2</h2>
+      <p>Informações detalhadas sobre o conteúdo 2.</p>
+    </div>
+
+    <div id="content3" class="hidden-content">
+      <h2>Conteúdo 3</h2>
+      <p>Informações detalhadas sobre o conteúdo 3.</p>
+    </div>
   </div>
 
-  <!-- Box de conteúdo ao clicar -->
-  <div id="content1" class="hidden-content">
-    <h2>Conteúdo 1</h2>
-    <p>Informações detalhadas sobre o conteúdo 1.</p>
-  </div>
-
-  <div id="content2" class="hidden-content">
-    <h2>Conteúdo 2</h2>
-    <p>Informações detalhadas sobre o conteúdo 2.</p>
-  </div>
-
-  <div id="content3" class="hidden-content">
-    <h2>Conteúdo 3</h2>
-    <p>Informações detalhadas sobre o conteúdo 3.</p>
-  </div>
+  <!-- Gif abaixo do conteúdo e acima do rodapé -->
+  <img id="gif-below-content" src="seu_gif_abaixo_do_conteudo.gif" alt="GIF abaixo do conteúdo e acima do rodapé">
 
   <!-- Rodapé -->
   <div id="footer">
@@ -195,11 +290,25 @@
         contents[i].classList.remove('visible-content');
       }
       document.getElementById(contentId).classList.add('visible-content');
+      // Modificado para garantir que os botões de opção não sejam exibidos ao chamar showContent
+      document.querySelector('.content-buttons').style.display = 'none';
     }
 
     function toggleContentButtons() {
       var contentButtons = document.querySelector('.content-buttons');
       contentButtons.style.display = (contentButtons.style.display === 'flex') ? 'none' : 'flex';
+    }
+
+    function toggleLanguageDropdown() {
+      var languageDropdown = document.getElementById('language-dropdown');
+      languageDropdown.style.display = (languageDropdown.style.display === 'block') ? 'none' : 'block';
+    }
+
+    function changeLanguage(languageCode) {
+      // Adicione aqui a lógica para mudar o idioma da página conforme necessário
+      console.log('Mudando para o idioma:', languageCode);
+      // Aqui você pode usar bibliotecas ou implementar sua própria lógica de mudança de idioma
+      // Dependendo de como sua página é estruturada e do suporte a i18n
     }
 
     let prevScrollPos = window.pageYOffset;
@@ -213,6 +322,21 @@
       prevScrollPos = currentScrollPos;
     };
   </script>
+  <!-- Botão de Trocar Idioma -->
+  <div id="language-dropdown">
+    <div id="language-dropdown-content">
+      <div class="language-option" onclick="changeLanguage('pt-br')">Português</div>
+      <div class="language-option" onclick="changeLanguage('en')">English</div>
+      <!-- Adicione mais opções de idiomas conforme necessário -->
+    </div>
+    Idioma
+  </div>
 
+  <script>
+    function changeLanguage(language) {
+      // Redireciona para a página correspondente ao idioma selecionado
+      window.location.href = 'index_' + language + '.html';
+    }
+  </script>
 </body>
 </html>
