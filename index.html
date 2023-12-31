@@ -351,5 +351,26 @@
       window.location.href = 'index' + language + '.html';
     }
   </script>
+    <script>
+    function showContent(contentId) {
+      var contents = document.querySelectorAll('.hidden-content');
+      for (var i = 0; i < contents.length; i++) {
+        contents[i].classList.remove('visible-content');
+      }
+      var contentElement = document.getElementById(contentId);
+      contentElement.classList.add('visible-content');
+
+      // Rolagem suave até o elemento visível
+      contentElement.scrollIntoView({ behavior: 'smooth' });
+
+      // Modificado para garantir que os botões de opção não sejam exibidos ao chamar showContent
+      document.querySelector('.content-buttons').style.display = 'none';
+    }
+
+    function toggleContentButtons() {
+      var contentButtons = document.querySelector('.content-buttons');
+      contentButtons.style.display = (contentButtons.style.display === 'flex') ? 'none' : 'flex';
+    }
+    </script>
 </body>
 </html>
