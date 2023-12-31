@@ -218,20 +218,20 @@
 <body>
 
   <!-- Gif acima do título do jogo -->
-  <img id="gif-above-title" src="seu_gif_acima_do_titulo.gif" alt="GIF acima do título do jogo">
+  <img id="gif-above-title" src="Imagens/inicial_bg.gif" alt="GIF acima do título do jogo">
 
   <!-- Barra Superior -->
   <div id="navbar">
     <div>
-      <a href="#">Botão 1</a>
-      <a href="#">Botão 2</a>
-      <a href="#">Botão 3</a>
+      <a href="#" onclick="showContent('content1')">Jogos</a>
+      <a href="#" onclick="showContent('content2')">Sobre nós</a>
+      <a href="#" onclick="showContent('content3')">Discord</a>
     </div>
-    <img src="logo.png" alt="Logo">
+    <img src="Imagens/azulara_logo.png" alt="Logo">
     <div>
-      <a href="#" onclick="showContent('content1')">Botão 4</a>
-      <a href="#" onclick="showContent('content2')">Botão 5</a>
-      <a href="#" onclick="showContent('content3')">Botão 6</a>
+      <a href="#" onclick="showContent('content4')">Contatos</a>
+      <a href="#" onclick="showContent('content5')">Trabalhe conosco</a>
+      <a href="#" onclick="showContent('content6')">Novidades</a>
     </div>
     <!-- Botão Mostrar Conteúdo -->
     <div id="show-content-button" onclick="toggleContentButtons()">Mostrar Conteúdo</div>
@@ -245,36 +245,45 @@
     </div>
     <!-- Botões de Opções de Conteúdo (mesmos que os outros) -->
     <div class="content-buttons">
-      <a href="#" onclick="showContent('content1')">Botão 4</a>
-      <a href="#" onclick="showContent('content2')">Botão 5</a>
-      <a href="#" onclick="showContent('content3')">Botão 6</a>
+      <a href="#" onclick="showContent('content1')">Jogos</a>
+      <a href="#" onclick="showContent('content2')">Sobre nós</a>
+      <a href="#" onclick="showContent('content3')">Discord</a>
+      <a href="#" onclick="showContent('content4')">Contatos</a>
+      <a href="#" onclick="showContent('content5')">Trabalhe conosco</a>
+      <a href="#" onclick="showContent('content6')">Novidades</a>
     </div>
   </div>
 
   <!-- Conteúdo Central -->
   <div class="content-container">
     <div id="content1" class="hidden-content">
-      <h2>Conteúdo 1</h2>
-      <p>Informações detalhadas sobre o conteúdo 1.</p>
+      <h2>Jogos</h2>
+      <p>Novidades em bre.</p>
     </div>
 
     <div id="content2" class="hidden-content">
-      <h2>Conteúdo 2</h2>
-      <p>Informações detalhadas sobre o conteúdo 2.</p>
+      <h2>Sobre nós</h2>
+      <p>Brasileiros indie </br> Novidades em breve, fique ligado.</b>.</p>
     </div>
 
     <div id="content3" class="hidden-content">
-      <h2>Conteúdo 3</h2>
-      <p>Informações detalhadas sobre o conteúdo 3.</p>
+      <h2>Discord</h2>
+      <p><widgetbot
+    server="1086306542854344805"
+    channel="1188652399250898964"
+    width="800"
+    height="600"
+           ></widgetbot>
+<script src="https://cdn.jsdelivr.net/npm/@widgetbot/html-embed"></script></p>
     </div>
   </div>
 
   <!-- Gif abaixo do conteúdo e acima do rodapé -->
-  <img id="gif-below-content" src="seu_gif_abaixo_do_conteudo.gif" alt="GIF abaixo do conteúdo e acima do rodapé">
+  <img id="gif-below-content" src="Imagens/inicial_bg.gif" alt="GIF abaixo do conteúdo e acima do rodapé">
 
   <!-- Rodapé -->
   <div id="footer">
-    <img src="small-logo.png" alt="Small Logo">
+    <img src="Imagens/Azulara_logo_white.png" alt="Small Logo">
     <div id="social-media">
       <a href="#" target="_blank">Facebook</a>
       <a href="#" target="_blank">Twitter</a>
