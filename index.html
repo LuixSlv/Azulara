@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Studio de Jogos</title>
+  <title>Azulara</title>
   <style>
     body {
       margin: 0;
@@ -24,7 +24,7 @@
       justify-content: space-between;
       align-items: center;
       z-index: 1000;
-      transition: background 0.5s, top 0.5s;
+      transition: background 0s, top 0.5s;
       border-bottom-left-radius: 15px;
       border-bottom-right-radius: 15px;
       top: 0;
@@ -199,7 +199,7 @@
     /* Estilo para tela menor */
     @media screen and (max-width: 768px) {
       #navbar a {
-        display: none;
+        display: table-column;
       }
 
       #language-button {
@@ -325,7 +325,7 @@
   <!-- Botão de Trocar Idioma -->
   <div id="language-dropdown">
     <div id="language-dropdown-content">
-      <div class="language-option" onclick="changeLanguage('pt-br')">Português</div>
+      <div class="language-option" onclick="changeLanguage('')">Português</div>
       <div class="language-option" onclick="changeLanguage('en')">English</div>
       <!-- Adicione mais opções de idiomas conforme necessário -->
     </div>
@@ -335,7 +335,7 @@
   <script>
     function changeLanguage(language) {
       // Redireciona para a página correspondente ao idioma selecionado
-      window.location.href = 'index_' + language + '.html';
+      window.location.href = 'index' + language + '.html';
     }
   </script>
 </body>
